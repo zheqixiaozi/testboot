@@ -24,6 +24,8 @@ spring:
     schema: classpath:/org/springframework/batch/core/schema-mysql.sql
   batch:
     initialize-schema: always
+    job:
+      names: EODJob  #批量任务入口
 server:
   port: 8084
 jobs:

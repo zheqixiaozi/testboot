@@ -13,8 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
-@EnableBatchProcessing
+//@Configuration
 public class JobConfiguration {
 
     @Autowired
@@ -30,7 +29,7 @@ public class JobConfiguration {
                 .build();
     }
 
-    @Bean
+//    @Bean
     public Step step1() {
             return stepBuilderFactory.get("step1")
                 .tasklet(new Tasklet() {
