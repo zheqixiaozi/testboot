@@ -1,0 +1,22 @@
+spring:
+  profiles:
+    active: prod
+
+---
+spring:
+  profiles: dev
+  config:
+    location:
+server:
+  port: 8083
+
+---
+spring:
+  profiles: prod
+  config:
+    location:
+server:
+  port: 8084
+jobs:
+  scheduled:
+    cron: 0/10 * * * * ?
