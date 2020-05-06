@@ -16,6 +16,14 @@ jobs:
 ---
 spring:
   profiles: prod
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.192.5:3306/springbatch
+    username: root
+    password: 123456
+    schema: classpath:/org/springframework/batch/core/schema-mysql.sql
+  batch:
+    initialize-schema: always
 server:
   port: 8084
 jobs:
