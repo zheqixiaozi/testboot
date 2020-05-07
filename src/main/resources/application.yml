@@ -25,7 +25,7 @@ spring:
   batch:
     initialize-schema: always
     job:
-      names: EODJob,myListenerJob,myParameterJob,simpleViewJob,itemReaderFromDBJob,itemReaderFromFileJob,itemReaderFromXMLJob  #批量任务入口
+      names: EODJob,myListenerJob,myParameterJob,simpleViewJob,itemReaderFromDBJob,itemReaderFromFileJob,itemReaderFromXMLJob,itemReaderMultipleFileJob  #批量任务入口
 server:
   port: 8084
 jobs:
