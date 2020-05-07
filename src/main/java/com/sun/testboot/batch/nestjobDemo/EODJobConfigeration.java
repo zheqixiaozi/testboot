@@ -1,4 +1,4 @@
-package com.sun.testboot.batch.nestjob;
+package com.sun.testboot.batch.nestjobDemo;
 
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
