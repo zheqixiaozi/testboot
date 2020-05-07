@@ -57,12 +57,8 @@ public class ItemReaderFromFileConfiguration {
     @StepScope
     public FlatFileItemReader<Customer> itemReaderFromFileReader() {
         FlatFileItemReader<Customer> reader = new FlatFileItemReader<>();
+        //注意要修改pom文件编译打包.csv文件
         ClassPathResource resource = new ClassPathResource("customer.csv");
-        try{
-            System.out.println("resourcepath："+resource.getURL().getPath().toString());
-        }catch (Exception e){
-            e.printStackTrace();
-        }
         reader.setResource(resource);
         reader.setLinesToSkip(1);
         DelimitedLineTokenizer tokenizer = new DelimitedLineTokenizer();
