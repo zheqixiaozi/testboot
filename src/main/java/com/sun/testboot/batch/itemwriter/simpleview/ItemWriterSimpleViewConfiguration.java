@@ -14,6 +14,16 @@ import org.springframework.context.annotation.Configuration;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * **spring batch支持的writer如下所示：****
+ *   Neo4jItemWriter
+ *   MongoItemWriter
+ *   RepositoryItemWriter
+ *   HibernateItemWriter
+ *   JdbcBatchItemWriter
+ *   JpaItemWriter
+ *   GemfireItemWriter
+ */
 @Configuration
 public class ItemWriterSimpleViewConfiguration {
     @Autowired
