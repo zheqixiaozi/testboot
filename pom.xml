@@ -88,6 +88,7 @@
                     <include>**/Dockerfile</include>
                     <include>**/*.xlsx</include>
                     <include>**/*.csv</include>
+                    <include>**/*.html</include>
                 </includes>
                 <!--是否替换资源中的属性-->
                 <filtering>false</filtering>
