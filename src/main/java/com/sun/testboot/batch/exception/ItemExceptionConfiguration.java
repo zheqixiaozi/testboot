@@ -1,6 +1,7 @@
 package com.sun.testboot.batch.exception;
 
 import org.springframework.batch.core.Job;
+import org.springframework.batch.core.SkipListener;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
@@ -29,6 +30,9 @@ public class ItemExceptionConfiguration {
     @Autowired
     @Qualifier("itemExeptionProcessor")
     private ItemProcessor<String,String> itemExeptionProcessor;
+    @Autowired
+    @Qualifier("mySkipListener")
+    private SkipListener<String,String> mySkipListener;
 
     @Bean
     public Job itemExceptionJob(){
@@ -47,6 +51,27 @@ public class ItemExceptionConfiguration {
                 .faultTolerant()
                 .retry(MyException.class)
                 .retryLimit(10)
+                .build();
+    }
+
+    @Bean
+    public Job itemExceptionSkipJob1(){
+        return jobBuilderFactory.get("itemExceptionSkipJob1")
+                .start(itemExceptionSkipStep1())
+                .build();
+    }
+
+    @Bean
+    public Step itemExceptionSkipStep1() {
+        return stepBuilderFactory.get("itemExceptionSkipStep1")
+                .<String,String>chunk(10)
+                .reader(itemExeptionReader)
+                .processor(itemExeptionProcessor)
+                .writer(itemExeptionWriter)
+                .faultTolerant()
+                .skip(MyException.class)
+                .skipLimit(10)
+                .listener(mySkipListener)
                 .build();
     }
 }
