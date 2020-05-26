@@ -27,8 +27,14 @@ spring:
     job:
       names: EODJob,myListenerJob,myParameterJob,simpleViewJob,itemReaderFromDBJob,itemReaderFromFileJob,itemReaderFromXMLJob,itemReaderMultipleFileJob,restartDemoJob,simpleViewWriterJob,itemWriterToDBJob,itemWriterToFileJob,itemWriterToXMLJob,itemWriterToMultipleFileJob12,itemProcessorToFileJob,itemExceptionJob,itemExceptionSkipJob1  #批量任务入口
       enabled: false
+  redis:
+    host: 192.168.192.5
+    port: 6379
 server:
   port: 8084
 jobs:
   scheduled:
     cron: 0/10 * * * * ?
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
