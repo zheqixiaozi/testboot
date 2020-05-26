@@ -17,9 +17,13 @@ public class RedisTest {
     @Autowired
     StringRedisTemplate stringRedisTemplate;
     @Autowired
+    RedisTemplate studentRedisTemplate;
+    @Autowired
     private CustomerMapper customerMapper;
     @Autowired
     private StudentMapper studentMapper;
+
+
 
     @Test
     public void test(){
@@ -30,5 +34,7 @@ public class RedisTest {
         System.out.println("customer:"+customer.toString());
         Student student = studentMapper.findById(1);
         System.out.println("student:"+student.toString());
+        //json的形式保存对象数据
+        studentRedisTemplate.opsForValue().set("stu-1",student);
     }
 }
