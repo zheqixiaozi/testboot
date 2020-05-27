@@ -36,5 +36,8 @@ public class RedisTest {
         System.out.println("student:"+student.toString());
         //json的形式保存对象数据
         studentRedisTemplate.opsForValue().set("stu-1",student);
+        redisTemplate.opsForValue().set("aaa",111);
+        stringRedisTemplate.opsForValue().set("bbb","222");
+        stringRedisTemplate.opsForValue().set("ccc","333");
     }
 }
